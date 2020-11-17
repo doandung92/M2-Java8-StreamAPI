@@ -4,9 +4,9 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
-        students.add( new Student(1,"Evolyb",19));
-        students.add( new Student(2,"Kaka",34));
-        students.add( new Student(3,"Enoy",14));
+        students.add(new Student(1, "Evolyb", 19));
+        students.add(new Student(2, "Kaka", 34));
+        students.add(new Student(3, "Enoy", 14));
 
         // Filter
         List<Student> result = students.stream()
@@ -14,7 +14,8 @@ public class Main {
                 .collect(Collectors.toList());
         // Sort
         List<Student> sorted = students.stream()
-                .sorted(Comparator.comparing(Student::getName).thenComparing(Student::getId).reversed())
+                .sorted(Comparator.comparing(Student::getName)
+                        .thenComparing(Student::getId).reversed())
                 .collect(Collectors.toList());
         // All match
         boolean allMatch = students.stream()
