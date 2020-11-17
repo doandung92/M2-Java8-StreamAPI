@@ -1,5 +1,6 @@
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,7 +39,11 @@ public class Main {
                 .max(Comparator.comparing(Student::getAge))
                 .map(Student::getName);
 
-        oldestStudent.ifPresent(System.out::println); // Evolyb
+        Stream<Long> iterateNumbers = Stream.iterate(1L, n -> n + 1).limit(10);
+        iterateNumbers.forEach(System.out::println); //12345678910
+        // .reduce(0, (subtotal, element) -> subtotal + element);
+        int sum = students.stream().reduce(0, (sub, element) -> sub + element.getAge(), Integer::sum);
+        System.out.println(sum);
     }
 
 }
